@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CategoryCellView" customModule="NewsApp" customModuleProvider="target">
+            <connections>
+                <outlet property="categoryCellView" destination="iN0-l3-epB" id="VNe-mH-4vn"/>
+                <outlet property="labelCategory" destination="4MV-yL-79W" id="RlS-a8-LqD"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="69" height="27"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Works" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MV-yL-79W">
+                    <rect key="frame" x="0.0" y="0.0" width="69" height="27"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                    <color key="textColor" red="0.52549019607843139" green="0.52156862745098043" blue="0.50588235294117645" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="4MV-yL-79W" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="70Z-bW-zRA"/>
+                <constraint firstItem="4MV-yL-79W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="X59-x7-qNm"/>
+                <constraint firstAttribute="bottom" secondItem="4MV-yL-79W" secondAttribute="bottom" id="aQh-1D-cUf"/>
+                <constraint firstAttribute="trailing" secondItem="4MV-yL-79W" secondAttribute="trailing" id="vVf-jD-eOV"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-122.46376811594205" y="-201.89732142857142"/>
+        </view>
+    </objects>
+</document>
