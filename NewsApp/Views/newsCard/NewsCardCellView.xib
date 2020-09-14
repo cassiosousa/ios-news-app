@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsCardCellView" customModule="NewsApp" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonSee" destination="izB-Pf-8Ss" id="7Et-QK-nGy"/>
+                <outlet property="image" destination="B7h-aE-aLl" id="SiD-dj-Ima"/>
+                <outlet property="labelDate" destination="4MV-yL-79W" id="Qag-zJ-7oB"/>
+                <outlet property="labelTitle" destination="9E6-11-z6Q" id="Wb0-XP-jwA"/>
+                <outlet property="newsCardCellView" destination="iN0-l3-epB" id="MJA-yw-XSx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="400"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjs-Cz-Fpp">
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="400"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolderImage" translatesAutoresizingMaskIntoConstraints="NO" id="B7h-aE-aLl">
+                            <rect key="frame" x="0.0" y="0.0" width="250" height="200"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9E6-11-z6Q">
+                            <rect key="frame" x="20" y="215" width="210" height="131.5"/>
+                            <string key="text">Nikola sinks another 18% as Citron Research calls it a 'total fraud' and investors shun a rebuttal of the original short-seller report | Markets - Business Insider</string>
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                            <color key="textColor" red="0.17254901960784313" green="0.14901960784313725" blue="0.12549019607843137" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" insetsLayoutMarginsFromSafeArea="NO" text="22/11/2020 15:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MV-yL-79W">
+                            <rect key="frame" x="20" y="368.5" width="104" height="16.5"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="12"/>
+                            <color key="textColor" red="0.52549019607843139" green="0.52156862745098043" blue="0.50588235294117645" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izB-Pf-8Ss">
+                            <rect key="frame" x="132" y="356" width="93" height="36"/>
+                            <color key="backgroundColor" red="0.15686274509803921" green="0.16862745098039217" blue="0.28627450980392155" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                            <state key="normal" title="Ver">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="4MV-yL-79W" secondAttribute="bottom" constant="15" id="AtY-qV-34y"/>
+                        <constraint firstAttribute="trailing" secondItem="izB-Pf-8Ss" secondAttribute="trailing" constant="25" id="AzW-lH-0zo"/>
+                        <constraint firstItem="4MV-yL-79W" firstAttribute="leading" secondItem="gjs-Cz-Fpp" secondAttribute="leading" constant="20" id="Na6-ck-cO5"/>
+                        <constraint firstAttribute="height" constant="400" id="P8y-dl-FUy"/>
+                        <constraint firstAttribute="width" constant="250" id="V69-Du-fZ3"/>
+                        <constraint firstItem="9E6-11-z6Q" firstAttribute="top" secondItem="B7h-aE-aLl" secondAttribute="bottom" constant="15" id="WeM-0A-TWx"/>
+                        <constraint firstAttribute="trailing" secondItem="9E6-11-z6Q" secondAttribute="trailing" constant="20" id="csD-i0-WX8"/>
+                        <constraint firstAttribute="bottom" secondItem="izB-Pf-8Ss" secondAttribute="bottom" constant="8" id="hCp-1b-vYc"/>
+                        <constraint firstItem="izB-Pf-8Ss" firstAttribute="leading" secondItem="4MV-yL-79W" secondAttribute="trailing" constant="8" id="hVt-dw-Bi9"/>
+                        <constraint firstItem="9E6-11-z6Q" firstAttribute="leading" secondItem="gjs-Cz-Fpp" secondAttribute="leading" constant="20" id="nt3-Gp-e6o"/>
+                        <constraint firstAttribute="trailing" secondItem="B7h-aE-aLl" secondAttribute="trailing" id="oC2-wB-P3y"/>
+                        <constraint firstItem="B7h-aE-aLl" firstAttribute="top" secondItem="gjs-Cz-Fpp" secondAttribute="top" id="qai-Vy-ymo"/>
+                        <constraint firstItem="B7h-aE-aLl" firstAttribute="leading" secondItem="gjs-Cz-Fpp" secondAttribute="leading" id="r2t-jU-iq7"/>
+                        <constraint firstItem="B7h-aE-aLl" firstAttribute="height" secondItem="gjs-Cz-Fpp" secondAttribute="height" multiplier="0.5" id="rqY-lR-Fx9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gjs-Cz-Fpp" secondAttribute="bottom" id="4Fr-a1-afU"/>
+                <constraint firstItem="gjs-Cz-Fpp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Y9G-yM-ZXr"/>
+                <constraint firstItem="gjs-Cz-Fpp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bSQ-TM-hVK"/>
+                <constraint firstAttribute="trailing" secondItem="gjs-Cz-Fpp" secondAttribute="trailing" id="rjQ-ov-Vtk"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-5.7971014492753632" y="-106.47321428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="placeHolderImage" width="225" height="225"/>
+    </resources>
+</document>
