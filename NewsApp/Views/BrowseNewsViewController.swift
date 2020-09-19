@@ -2,11 +2,12 @@ import UIKit
 
 final class BrowseNewsViewController: UIViewController {
     
-    @IBOutlet weak var collectionViewCountry: UICollectionView!
-    @IBOutlet weak var viewBottom: UIView!
-    @IBOutlet weak var labelCountry: UILabel!
+    @IBOutlet private weak var collectionViewCountry: UICollectionView!
+    @IBOutlet private weak var viewBottom: UIView!
+    @IBOutlet private weak var labelCountry: UILabel!
     
-    @IBOutlet weak var newsCardView: NewsCardView!
+    @IBOutlet private weak var newsCardView: NewsCardView!
+    @IBOutlet private weak var categoryView: CategoryView!
     
     private let collectionViewCellCountryId = "collectionViewCellCountryId"
     private let browseNewsListViewModel = BrowseNewsListViewModel()
@@ -14,10 +15,16 @@ final class BrowseNewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.uiSetup()
+        self.searchNews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         backgroundGradient()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        categoryView.selectFirst()
+        selectFirstCountry()
     }
     
     private func uiSetup() {
@@ -27,8 +34,8 @@ final class BrowseNewsViewController: UIViewController {
         collectionViewCountry.register(CountryCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellCountryId)
         collectionViewCountry.dataSource = self
         collectionViewCountry.delegate = self
+        categoryView.delegate = self
     }
-
     
     private func backgroundGradient() {
         let gradient = CAGradientLayer()
@@ -53,7 +60,23 @@ final class BrowseNewsViewController: UIViewController {
     }
     
     private func findNewsBy(country: String){
-        newsCardView.change(country: country)
+        newsCardView.search(country)
+    }
+    
+    private func findNewsBy(category: String){
+        newsCardView.search(category: category)
+    }
+    
+    private func searchNews() {
+        newsCardView.search(browseNewsListViewModel.firstKeyFlag(), category: categoryView.firstCategory.category.rawValue)
+    }
+    
+    private func selectFirstCountry() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard let cell = collectionViewCountry.cellForItem(at: indexPath) as? CountryCollectionViewCell else { return }
+        cell.addBorderToSelectCountry()
+        self.collectionViewCountry.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+        self.changeCountry(name: browseNewsListViewModel.firstValueFlag())
     }
 }
 
@@ -87,4 +110,13 @@ extension BrowseNewsViewController: UICollectionViewDelegate {
         let cell = collectionView.cellForItem(at: indexPath) as! CountryCollectionViewCell
         cell.removeBorderToSelectedCountry()
     }
+}
+
+
+// MARK: CategoryViewDelegate
+extension BrowseNewsViewController: CategoryViewDelegate {
+    func categoryView(didSelectCategory: CategoryViewModel) {
+        self.findNewsBy(category: didSelectCategory.category.rawValue.lowercased())
+    }
+    
 }
