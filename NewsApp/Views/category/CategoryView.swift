@@ -37,12 +37,17 @@ final class CategoryView: UIView {
         collectionViewCategory.delegate = self
         collectionViewCategory.register(CategoryCellView.self, forCellWithReuseIdentifier: cellCategoryViewIdentifier)
     }
+    
+    func selectFirst() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard let cell = collectionViewCategory.cellForItem(at: indexPath ) as? CategoryCellView else { return }
+        cell.showSelectedDetail()
+        self.collectionViewCategory.selectItem(at: indexPath , animated: false, scrollPosition: .left)
+    }
 }
 
 // MARK: Computed Properties
 extension CategoryView {
-    
-    
     var firstCategory : CategoryViewModel {
         return categoryListViewModel.categoryAt(index: 0)
     }
@@ -69,8 +74,15 @@ extension CategoryView: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension CategoryView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CategoryCellView
+        cell.showSelectedDetail()
         guard let delegate = delegate else { return }
         let category = categoryListViewModel.categoryAt(index: indexPath.row)
         delegate.categoryView(didSelectCategory: category)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! CategoryCellView
+        cell.hideSelectedDetail()
     }
 }

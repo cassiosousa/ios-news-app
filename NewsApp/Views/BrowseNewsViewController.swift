@@ -22,6 +22,11 @@ final class BrowseNewsViewController: UIViewController {
         backgroundGradient()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        categoryView.selectFirst()
+        selectFirstCountry()
+    }
+    
     private func uiSetup() {
         self.navigationItem.title = "Browse"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -31,7 +36,6 @@ final class BrowseNewsViewController: UIViewController {
         collectionViewCountry.delegate = self
         categoryView.delegate = self
     }
-
     
     private func backgroundGradient() {
         let gradient = CAGradientLayer()
@@ -65,7 +69,14 @@ final class BrowseNewsViewController: UIViewController {
     
     private func searchNews() {
         newsCardView.search(browseNewsListViewModel.firstKeyFlag(), category: categoryView.firstCategory.category.rawValue)
-        collectionViewCountry.selectItem(at: IndexPath.init(index:0), animated: false, scrollPosition: .left)
+    }
+    
+    private func selectFirstCountry() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        guard let cell = collectionViewCountry.cellForItem(at: indexPath) as? CountryCollectionViewCell else { return }
+        cell.addBorderToSelectCountry()
+        self.collectionViewCountry.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+        self.changeCountry(name: browseNewsListViewModel.firstValueFlag())
     }
 }
 
