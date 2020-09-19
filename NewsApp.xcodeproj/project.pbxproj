@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DF9615FF2510093200928B07 /* CountryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9615FE2510093200928B07 /* CountryCollectionViewCell.swift */; };
 		DF96160225100A9200928B07 /* CountryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF96160125100A9200928B07 /* CountryCollectionViewCell.xib */; };
+		DF961604251048F500928B07 /* BowseNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF961603251048F500928B07 /* BowseNewsViewModel.swift */; };
 		DFB0ABF6250BFF9F00C9C934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB0ABF5250BFF9F00C9C934 /* Assets.xcassets */; };
 		DFB0ABF9250BFF9F00C9C934 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFB0ABF7250BFF9F00C9C934 /* LaunchScreen.storyboard */; };
 		DFB0AC03250C011700C9C934 /* BrowseNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFB0AC01250C011700C9C934 /* BrowseNewsViewController.xib */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		DF9615FE2510093200928B07 /* CountryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountryCollectionViewCell.swift; path = NewsApp/Views/Country/CountryCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		DF96160125100A9200928B07 /* CountryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCollectionViewCell.xib; sourceTree = "<group>"; };
+		DF961603251048F500928B07 /* BowseNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowseNewsViewModel.swift; sourceTree = "<group>"; };
 		DFB0ABE9250BFF9E00C9C934 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB0ABEC250BFF9E00C9C934 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFB0ABF5250BFF9F00C9C934 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -71,13 +73,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DF96160025100A7600928B07 /* Country */ = {
+		DF96160025100A7600928B07 /* country */ = {
 			isa = PBXGroup;
 			children = (
 				DF9615FE2510093200928B07 /* CountryCollectionViewCell.swift */,
 				DF96160125100A9200928B07 /* CountryCollectionViewCell.xib */,
 			);
-			path = Country;
+			path = country;
 			sourceTree = "<group>";
 		};
 		DFB0ABE0250BFF9E00C9C934 = {
@@ -115,7 +117,7 @@
 		DFB0AC05250C083400C9C934 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DF96160025100A7600928B07 /* Country */,
+				DF96160025100A7600928B07 /* country */,
 				DFB0AC1A250C5ADF00C9C934 /* newsCard */,
 				DFB0AC06250C084200C9C934 /* category */,
 				DFB0AC00250C011700C9C934 /* BrowseNewsViewController.swift */,
@@ -158,6 +160,7 @@
 			children = (
 				DFB0AC17250C465C00C9C934 /* CategoryViewModel.swift */,
 				DFB0AC25250C5CE900C9C934 /* NewsCardViewModel.swift */,
+				DF961603251048F500928B07 /* BowseNewsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				DFB0AC2B250D3E8F00C9C934 /* NewsService.swift in Sources */,
 				DFB0AC19250C525500C9C934 /* BrowseNewsViewController.swift in Sources */,
 				DFB0AC0E250C128400C9C934 /* UIView+extension.swift in Sources */,
+				DF961604251048F500928B07 /* BowseNewsViewModel.swift in Sources */,
 				DFB0AC0B250C11A200C9C934 /* CategoryView.swift in Sources */,
 				DFB0AC24250C5BA200C9C934 /* News.swift in Sources */,
 				DFB0AC15250C453600C9C934 /* Category.swift in Sources */,

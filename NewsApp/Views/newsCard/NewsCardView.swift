@@ -32,12 +32,17 @@ final class NewsCardView: UIView {
         loadData()
     }
     
-    private func loadData() {
-        NewsService().fetch { result in
+    func change(country: String) {
+        self.loadData(country: country)
+    }
+    
+    private func loadData(country: String? = nil) {
+        NewsService().fetch(byCountry: country) { result in
             let news =  try? result.get()
             self.newsCardListViewModel = NewsCardListViewModel(newsCardViewModel: news?.articles.map(NewsCardViewModel.init) ?? [])
             DispatchQueue.main.async {
                 self.collectionViewNews.reloadData()
+                self.collectionViewNews.scrollToItem(at: IndexPath.init(index: .min), at: .left, animated: true)
             }
         }
     }
