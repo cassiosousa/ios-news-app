@@ -2,6 +2,10 @@
 import Foundation
 import UIKit
 
+protocol CategoryViewDelegate: class {
+    func categoryView(didSelectCategory: CategoryViewModel)
+}
+
 final class CategoryView: UIView {
     @IBOutlet private var categoryView: UIView!
     @IBOutlet private weak var collectionViewCategory: UICollectionView!
@@ -13,6 +17,8 @@ final class CategoryView: UIView {
     
     private let cellCategoryViewIdentifier = "CellCategoryView"
     private let categoryListViewModel = CategoryListViewModel()
+    
+    weak var delegate: CategoryViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,10 +32,19 @@ final class CategoryView: UIView {
     
     func setup(){
         Bundle.main.loadNibNamed(String(describing: type(of: self)), owner: self, options: nil)
-            self.categoryView.fixInView(self)
+        self.categoryView.fixInView(self)
         collectionViewCategory.dataSource = self
         collectionViewCategory.delegate = self
         collectionViewCategory.register(CategoryCellView.self, forCellWithReuseIdentifier: cellCategoryViewIdentifier)
+    }
+}
+
+// MARK: Computed Properties
+extension CategoryView {
+    
+    
+    var firstCategory : CategoryViewModel {
+        return categoryListViewModel.categoryAt(index: 0)
     }
 }
 
@@ -53,4 +68,9 @@ extension CategoryView: UICollectionViewDataSource {
 
 // MARK: UICollectionViewDelegate
 extension CategoryView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let delegate = delegate else { return }
+        let category = categoryListViewModel.categoryAt(index: indexPath.row)
+        delegate.categoryView(didSelectCategory: category)
+    }
 }

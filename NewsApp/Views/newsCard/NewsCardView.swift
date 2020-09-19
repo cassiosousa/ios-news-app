@@ -13,6 +13,8 @@ final class NewsCardView: UIView {
     
     private let newsCardViewViewIdentifier = "NewsCardCellView"
     private var newsCardListViewModel = NewsCardListViewModel(newsCardViewModel:[])
+    private var country: String = ""
+    private var category: String = ""
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -29,15 +31,16 @@ final class NewsCardView: UIView {
         collectionViewNews.dataSource = self
         collectionViewNews.delegate = self
         collectionViewNews.register(NewsCardCellView.self, forCellWithReuseIdentifier: newsCardViewViewIdentifier)
-        loadData()
     }
     
-    func change(country: String) {
-        self.loadData(country: country)
+    func search(_ country: String? = nil,category: String? = nil) {
+        self.country = country ?? self.country
+        self.category = category ?? self.category
+        self.loadData(country: self.country, category: self.category)
     }
     
-    private func loadData(country: String? = nil) {
-        NewsService().fetch(byCountry: country) { result in
+    private func loadData(country: String? = nil, category: String? = nil) {
+        NewsService().fetch(byCountry: country, byCategory: category) { result in
             let news =  try? result.get()
             self.newsCardListViewModel = NewsCardListViewModel(newsCardViewModel: news?.articles.map(NewsCardViewModel.init) ?? [])
             DispatchQueue.main.async {

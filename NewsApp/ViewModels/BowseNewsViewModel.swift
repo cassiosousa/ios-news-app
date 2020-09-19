@@ -25,4 +25,9 @@ extension BrowseNewsListViewModel {
         let idx =  flags.index(flags.startIndex, offsetBy: index)
         return flags.keys[idx]
     }
+    
+    func firstKeyFlag() -> String {
+        let idx =  flags.index(flags.startIndex, offsetBy: 0)
+        return flags.keys[idx]
+    }
 }

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BrowseNewsViewController" customModule="NewsApp" customModuleProvider="target">
             <connections>
+                <outlet property="categoryView" destination="tDA-iR-YmV" id="kng-2n-D2y"/>
                 <outlet property="collectionViewCountry" destination="kl8-Sf-A93" id="f2v-22-q1g"/>
                 <outlet property="labelCountry" destination="iMm-3j-CMB" id="Pas-t0-GqB"/>
                 <outlet property="newsCardView" destination="b1f-TZ-X48" id="Pwv-yN-0gs"/>
