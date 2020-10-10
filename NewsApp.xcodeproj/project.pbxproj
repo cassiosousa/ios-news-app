@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF6B0E052530D52B0045CECD /* development.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF6B0E042530D52B0045CECD /* development.plist */; };
+		DF6B0E082530D73E0045CECD /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6B0E072530D73E0045CECD /* Parameters.swift */; };
 		DF9615FF2510093200928B07 /* CountryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF9615FE2510093200928B07 /* CountryCollectionViewCell.swift */; };
 		DF96160225100A9200928B07 /* CountryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF96160125100A9200928B07 /* CountryCollectionViewCell.xib */; };
 		DF961604251048F500928B07 /* BowseNewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF961603251048F500928B07 /* BowseNewsViewModel.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF6B0E042530D52B0045CECD /* development.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = development.plist; sourceTree = "<group>"; };
+		DF6B0E072530D73E0045CECD /* Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
 		DF9615FE2510093200928B07 /* CountryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountryCollectionViewCell.swift; path = NewsApp/Views/Country/CountryCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		DF96160125100A9200928B07 /* CountryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryCollectionViewCell.xib; sourceTree = "<group>"; };
 		DF961603251048F500928B07 /* BowseNewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowseNewsViewModel.swift; sourceTree = "<group>"; };
@@ -73,6 +77,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF6B0E032530D4A00045CECD /* Parameters */ = {
+			isa = PBXGroup;
+			children = (
+				DF6B0E042530D52B0045CECD /* development.plist */,
+				DF6B0E072530D73E0045CECD /* Parameters.swift */,
+			);
+			path = Parameters;
+			sourceTree = "<group>";
+		};
 		DF96160025100A7600928B07 /* country */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +114,11 @@
 		DFB0ABEB250BFF9E00C9C934 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				DF6B0E032530D4A00045CECD /* Parameters */,
 				DFB0AC27250D380E00C9C934 /* Services */,
 				DFB0AC16250C463100C9C934 /* ViewModels */,
 				DFB0AC13250C451D00C9C934 /* Model */,
-				DFB0AC0C250C127300C9C934 /* extension */,
+				DFB0AC0C250C127300C9C934 /* Extension */,
 				DFB0AC05250C083400C9C934 /* Views */,
 				DFB0ABEC250BFF9E00C9C934 /* AppDelegate.swift */,
 				DFB0ABF5250BFF9F00C9C934 /* Assets.xcassets */,
@@ -137,13 +151,13 @@
 			path = category;
 			sourceTree = "<group>";
 		};
-		DFB0AC0C250C127300C9C934 /* extension */ = {
+		DFB0AC0C250C127300C9C934 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				DFB0AC0D250C128400C9C934 /* UIView+extension.swift */,
 				DFB0AC2C250D549100C9C934 /* UIImageView+extensions.swift */,
 			);
-			path = extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DFB0AC13250C451D00C9C934 /* Model */ = {
@@ -246,6 +260,7 @@
 				DFB0AC22250C5B5B00C9C934 /* NewsCardView.xib in Resources */,
 				DF96160225100A9200928B07 /* CountryCollectionViewCell.xib in Resources */,
 				DFB0ABF9250BFF9F00C9C934 /* LaunchScreen.storyboard in Resources */,
+				DF6B0E052530D52B0045CECD /* development.plist in Resources */,
 				DFB0AC21250C5B5B00C9C934 /* NewsCardCellView.xib in Resources */,
 				DFB0ABF6250BFF9F00C9C934 /* Assets.xcassets in Resources */,
 				DFB0AC08250C087900C9C934 /* CategoryView.xib in Resources */,
@@ -269,6 +284,7 @@
 				DFB0AC04250C038A00C9C934 /* AppDelegate.swift in Sources */,
 				DFB0AC12250C15BC00C9C934 /* CategoryCellView.swift in Sources */,
 				DFB0AC29250D388D00C9C934 /* Service.swift in Sources */,
+				DF6B0E082530D73E0045CECD /* Parameters.swift in Sources */,
 				DFB0AC1F250C5B5B00C9C934 /* NewsCardCellView.swift in Sources */,
 				DFB0AC2B250D3E8F00C9C934 /* NewsService.swift in Sources */,
 				DFB0AC19250C525500C9C934 /* BrowseNewsViewController.swift in Sources */,

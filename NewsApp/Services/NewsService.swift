@@ -1,24 +1,31 @@
 import Foundation
 
 final class NewsService {
-    private let serviceManager = ServiceManager()
     
     func fetch(byCountry country: String? = nil,byCategory category: String? = nil, completion: @escaping (Result<News,NetworkError>) -> Void) {
-        let filterBy = prepareQueryParameters(byCountry: country, byCategory: category)
-        let resource = Resource<News>(url: URL(string: "https://newsapi.org/v2/top-headlines?\(filterBy)pageSize=10&apiKey=")!)
-        serviceManager.fetch(resource: resource, completion: completion)
+        let baseUrl = Parameters.shared.baseUrl
+        let pathTopHeadlines = Parameters.shared.pathTopHeadlines
+        let parameters = prepareQueryParameters(byCountry: country, byCategory: category)
+        guard let url = URL(string: "\(baseUrl)\(pathTopHeadlines)") else {
+            completion(.failure(.urlError))
+            return
+        }
+        let resource = Resource<News>(url: url,queryParameters: parameters)
+        ServiceManager.shared.fetch(resource: resource, completion: completion)
     }
     
-    func prepareQueryParameters(byCountry: String? = nil, byCategory: String? = nil) -> String{
-        var filters =  ""
+    func prepareQueryParameters(byCountry: String? = nil, byCategory: String? = nil) -> [String:String]{
+        var parameters: [String:String] = [:]
         if let byCountry = byCountry {
-            filters.append("country=\(byCountry)&")
+            parameters["country"] = byCountry
         
         }
         if let byCategory = byCategory {
-            filters.append("category=\(byCategory)&")
+            parameters["category"] = byCategory
         
         }
-        return filters
+        parameters["pageSize"] = Parameters.shared.defaultPageSize
+        parameters["apiKey"] = Parameters.shared.key
+        return parameters
     }
 }
