@@ -2,19 +2,19 @@
 
 # Overview
 
-    The ios-news-app is a app for view news in several countries. It was built to test some knowledge in iOS.
+The ios-news-app is a app for view news in several countries. It was built to test some knowledge in iOS.
 
 # How it works
 
-    To test this app
-    - Create a key at https://newsapi.org
-    - In plist `development.plist` replace `key= "your key"`
-    ```plist
-    <key>key</key>
-    <string>82340jfshf9u3982</string>
-    ```
+To test this app
+- Create a key at https://newsapi.org
+- In plist `development.plist` replace `key= "your key"`
+```plist
+<key>key</key>
+<string>82340jfshf9u3982</string>
+```
 
-    - Run this app
+- Run this app
 
 # Preview 
 
