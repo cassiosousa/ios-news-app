@@ -8,7 +8,12 @@
 
     To test this app
     - Create a key at https://newsapi.org
-    - In class `NewsService` replace value `parameters["apiKey"] = "your key"`
+    - In plist `development.plist` replace `key= "your key"`
+    ```plist
+    <key>key</key>
+    <string>82340jfshf9u3982</string>
+    ```
+
     - Run this app
 
 # Preview 
