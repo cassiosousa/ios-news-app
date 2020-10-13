@@ -2,7 +2,7 @@
 
 # Overview
 
-The ios-news-app is a app for view news in several countries. It was built to test some knowledge in iOS.
+The ios-news-app is an app for view news in several countries. It built to test some knowledge in iOS.
 
 # How it works
 
