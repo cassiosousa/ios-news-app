@@ -10,6 +10,7 @@ final class BrowseNewsViewController: UIViewController {
     @IBOutlet private weak var categoryView: CategoryView!
     
     private let collectionViewCellCountryId = "collectionViewCellCountryId"
+    private let collectionViewCellCountryIdExcception = "collectionViewCellCountryIdException"
     private let browseNewsListViewModel = BrowseNewsListViewModel()
     
     override func viewDidLoad() {
@@ -32,6 +33,7 @@ final class BrowseNewsViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         viewBottom.roundedTop(size: 40)
         collectionViewCountry.register(CountryCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellCountryId)
+        collectionViewCountry.register(CountryCollectionViewCell.self, forCellWithReuseIdentifier: collectionViewCellCountryIdExcception)
         collectionViewCountry.dataSource = self
         collectionViewCountry.delegate = self
         categoryView.delegate = self
@@ -88,8 +90,13 @@ extension BrowseNewsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellCountryId, for: indexPath) as! CountryCollectionViewCell
-        cell.associate(flag: browseNewsListViewModel.flagAt(index: indexPath.row))
+        guard let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellCountryId, for: indexPath) as? CountryCollectionViewCell,
+              let flag = browseNewsListViewModel.flagAt(index: indexPath.row)
+        else {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: collectionViewCellCountryIdExcception, for: indexPath)
+                .notFound(label: "Not found CountryCollectionViewCell")
+        }
+        cell.associate(flag: flag)
         return cell
     }
 }
@@ -102,8 +109,8 @@ extension BrowseNewsViewController: UICollectionViewDelegate {
         let countryKey = browseNewsListViewModel.flagKey(index: indexPath.row)
         let cell = collectionView.cellForItem(at: indexPath) as! CountryCollectionViewCell
         cell.addBorderToSelectCountry()
-        changeCountry(name: countryName)
-        findNewsBy(country: countryKey)
+        changeCountry(name: countryName ?? "")
+        findNewsBy(country: countryKey ?? "")
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
